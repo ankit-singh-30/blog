@@ -9,7 +9,7 @@ function PostForm({post}) {
     const {register,control,handleSubmit,setValue,getValues,watch} = useForm({
         defaultValues:{
             title:post?.title || '',
-            slug:post?.slug || '',
+            slug:post?.$id || '',
             content:post?.content || '',
             status:post?.status || 'active',
         }
@@ -84,6 +84,7 @@ function PostForm({post}) {
                     onInput={(e) => {
                         setValue("slug", slugTransform(e.currentTarget.value), { shouldValidate: true });
                     }}
+                    readOnly
                 />
                 <RTE label="Content :" name="content" control={control} defaultValue={getValues("content")} />
             </div>

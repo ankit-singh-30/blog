@@ -10,7 +10,7 @@ function PostCard({$id,title,content,featuredImage}) {
         <div className="px-6 py-4">
           <div className="font-bold text-xl mb-2">{title}</div>
           <p className="text-gray-700 text-base">
-            {parse(content)}
+            {parse(content.substr(0,255))}
           </p>
         </div>
       </div>    
